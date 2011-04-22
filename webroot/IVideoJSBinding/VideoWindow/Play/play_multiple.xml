@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+	<name>Play Multiple</name>
+	<description>Tests the Play function using multiple sources</description>
+	<javascript onload="StartTest()" onunload="StopTest()">
+	<![CDATA[
+		var mediaUrls = [
+			"udp://@239.99.99.1:1234",
+			"rtsp://localhost:5554/Big_Buck_Bunny",
+			"http://localhost/inspire/resources/big_buck_bunny_480p_h264.mov",
+			"udp://@239.99.99.2:1234",
+			"rtsp://localhost:5554/Elephants_Dream",
+			"http://localhost/inspire/resources/elephantsdream-480-h264-st-aac.mov"			
+		];
+
+		function StartTest()
+		{
+			for (var i = 0; i < IVideo.maxVideoWindows; i++) {
+				var rect = document.getElementById("videoHere_" + i).getBoundingClientRect();
+				var video = IVideo.GetVideoWindow(i);
+				video.Reset();
+				video.fullscreen = false;
+				video.SetGeometry(rect.left, rect.top, rect.width, rect.height);
+				video.Play(mediaUrls[i]);
+			}
+		}
+
+		function StopTest()
+		{
+			IVideo.ResetAll();
+		}
+	]]>
+	</javascript>
+	<css>
+	<![CDATA[
+		section.videoWindow {
+			width: 300px;
+			height: 170px;
+			float: left;
+			margin: 10px;
+		}
+	]]>
+	</css>
+	<html>
+	<![CDATA[
+		<article>
+			<section id="videoHere_0" class="videoWindow">
+			</section>
+			<section id="videoHere_1" class="videoWindow">
+			</section>
+			<section id="videoHere_2" class="videoWindow">
+			</section>
+			<section id="videoHere_3" class="videoWindow">
+			</section>
+			<section id="videoHere_4" class="videoWindow">
+			</section>
+			<section id="videoHere_5" class="videoWindow">
+			</section>
+		</article>
+	]]>
+	</html>
+</test>

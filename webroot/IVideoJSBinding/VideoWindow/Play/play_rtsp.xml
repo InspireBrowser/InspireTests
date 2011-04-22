@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+	<name>Play RTSP</name>
+	<description>Tests the Play function using an RTSP source</description>
+	<javascript onload="StartTest()" onunload="StopTest()">
+	<![CDATA[
+		function StartTest()
+		{
+			var rect = document.getElementById("videoHere").getBoundingClientRect();
+
+			var video = IVideo.GetVideoWindow(0);
+			video.Reset();
+			video.fullscreen = false;
+			video.SetGeometry(rect.left, rect.top, rect.width, rect.height);
+			video.Play("rtsp://localhost:5554/Elephants_Dream");
+		}
+
+		function StopTest()
+		{
+			IVideo.ResetAll();
+		}
+	]]>
+	</javascript>
+	<css>
+	<![CDATA[
+		section#videoHere {
+			width: 300px;
+			height: 170px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	]]>
+	</css>
+	<html>
+	<![CDATA[
+		<article>
+			<section id="videoHere">
+			</section>
+		</article>
+	]]>
+	</html>
+</test>

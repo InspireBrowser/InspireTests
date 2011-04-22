@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+	<name>Play Http</name>
+	<description>Tests the Play function using an HTTP source</description>
+	<javascript onload="StartTest()" onunload="StopTest()">
+	<![CDATA[
+		function StartTest()
+		{
+			var rect = document.getElementById("videoHere").getBoundingClientRect();
+
+			var video = IVideo.GetVideoWindow(0);
+			video.Reset();
+			video.fullscreen = false;
+			video.SetGeometry(rect.left, rect.top, rect.width, rect.height);
+
+			var pathLength = window.location.pathname.length;
+			if(window.location.pathname.substring(pathLength-9) == "index.php")
+				path = window.location.pathname.substring(0, pathLength - 9);
+			else
+				path = window.location.pathname;
+
+			var url = "http://" + window.location.host + "/" + path + "/resources/elephantsdream-480-h264-st-aac.mov";
+			video.Play(url);
+		}
+
+		function StopTest()
+		{
+			IVideo.ResetAll();
+		}
+	]]>
+	</javascript>
+	<css>
+	<![CDATA[
+		section#videoHere {
+			width: 300px;
+			height: 170px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	]]>
+	</css>
+	<html>
+	<![CDATA[
+		<article>
+			<section id="videoHere">
+			</section>
+		</article>
+	]]>
+	</html>
+</test>

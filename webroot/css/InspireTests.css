@@ -1,0 +1,102 @@
+body, html {
+  margin: 5px;
+  padding: 0;
+  
+  font-family: Verdana, Arial;
+  font-size: 0.9em;
+}
+
+article{
+  float: left;
+  width: 100%;
+}
+ 
+article > section{
+  margin-right: 372px; /*Set right margin to RightColumnWidth + left border + right border + 10px padding*/
+}
+ 
+aside{
+  float: left;
+  width: 360px; /*Width of right column in pixels*/
+  margin-left: -362px; /*Set left margin to -(RightColumnWidth) + left border + right border */
+}
+
+section, aside {
+  border: 1px dashed black;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+  margin-bottom: 10px;
+}
+
+section > h2, aside > h2 {
+  margin: 3px;
+}
+
+section > ul, aside > ol {
+  margin-top: 0;
+}
+
+ul.breadcrumb {
+        list-style: none;
+        overflow: hidden;
+        font: 18px Helvetica, Arial, Sans-Serif;
+        padding-left: 0;
+}
+ul.breadcrumb li {
+        float: left;
+}
+ul.breadcrumb li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0 10px 45px;
+        background: brown;                   /* fallback color */
+        background: hsla(230,85%,35%,1);
+        position: relative;
+        display: block;
+        float: left;
+}
+
+ul.breadcrumb li a:after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+        border-bottom: 50px solid transparent;
+        border-left: 30px solid hsla(230,85%,35%,1);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 100%;
+        z-index: 2;
+}
+
+ul.breadcrumb li a:before {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-left: 30px solid white;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: 1px;
+        left: 100%;
+        z-index: 1;
+}
+
+ul.breadcrumb li:first-child a {
+        padding-left: 10px;
+}
+ul.breadcrumb li:nth-child(2) a       { background:        hsla(230,85%,45%,1); }
+ul.breadcrumb li:nth-child(2) a:after { border-left-color: hsla(230,85%,45%,1); }
+ul.breadcrumb li:nth-child(3) a       { background:        hsla(230,85%,55%,1); }
+ul.breadcrumb li:nth-child(3) a:after { border-left-color: hsla(230,85%,55%,1); }
+ul.breadcrumb li:nth-child(4) a       { background:        hsla(230,85%,65%,1); }
+ul.breadcrumb li:nth-child(4) a:after { border-left-color: hsla(230,85%,65%,1); }
+ul.breadcrumb li:nth-child(5) a       { background:        hsla(230,85%,75%,1); }
+ul.breadcrumb li:nth-child(5) a:after { border-left-color: hsla(230,85%,75%,1); }
