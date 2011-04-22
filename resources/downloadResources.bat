@@ -4,13 +4,15 @@
 REM -- Batch file to download the video files for the tests
 
 set BASE=http://www.inspirebrowser.org/tests/resources/
+set LOCATION="../webroot/resources/"
 
 set FILE="big_buck_bunny_480p_h264.mov"
-if NOT EXIST %FILE% (
+set FILE_PATH="%LOCATION%%FILE%
+if NOT EXIST %FILE_PATH% (
 	REM -- Nope then download it
-	echo Check for %FILE%... not found. Downloading!
+	echo Check for %FILE_PATH%... not found. Downloading!
 	echo.
-	win32\wget.exe %BASE%%FILE%
+	win32\wget.exe %BASE%%FILE% -O %FILE_PATH%
 	if ERRORLEVEL 1 (
 		echo.
 		echo **************************** ERROR ***************************************
@@ -28,11 +30,12 @@ if NOT EXIST %FILE% (
 )
 
 set FILE="elephantsdream-480-h264-st-aac.mov"
-if NOT EXIST %FILE% (
+set FILE_PATH="%LOCATION%%FILE%
+if NOT EXIST %FILE_PATH% (
 	REM -- Nope then download it
-	echo Check for %FILE%... not found. Downloading!
+	echo Check for %FILE_PATH%... not found. Downloading!
 	echo.
-	win32\wget.exe %BASE%%FILE%
+	win32\wget.exe %BASE%%FILE% -O %FILE_PATH%
 	if ERRORLEVEL 1 (
 		echo.
 		echo **************************** ERROR ***************************************

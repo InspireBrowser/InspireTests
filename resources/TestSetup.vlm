@@ -1,5 +1,5 @@
 new Big_Buck_Bunny_Channel broadcast enabled
-setup Big_Buck_Bunny_Channel input big_buck_bunny_480p_h264.mov
+setup Big_Buck_Bunny_Channel input ../webroot/resources/big_buck_bunny_480p_h264.mov
 setup Big_Buck_Bunny_Channel output #udp{dst=239.99.99.1:1234}
 setup Big_Buck_Bunny_Channel option no-sout-rtp-sap
 setup Big_Buck_Bunny_Channel option no-sout-standard-sap
@@ -10,7 +10,7 @@ setup Big_Buck_Bunny_Channel loop
 control Big_Buck_Bunny_Channel play
 
 new Elephants_Dream_Channel broadcast enabled
-setup Elephants_Dream_Channel input elephantsdream-480-h264-st-aac.mov
+setup Elephants_Dream_Channel input ../webroot/resources/elephantsdream-480-h264-st-aac.mov
 setup Elephants_Dream_Channel output #udp{dst=239.99.99.2:1234}
 setup Elephants_Dream_Channel option no-sout-rtp-sap
 setup Elephants_Dream_Channel option no-sout-standard-sap
@@ -21,7 +21,7 @@ setup Elephants_Dream_Channel loop
 control Elephants_Dream_Channel play
 
 new Big_Buck_Bunny vod enabled
-setup Big_Buck_Bunny input big_buck_bunny_480p_h264.mov
+setup Big_Buck_Bunny input ../webroot/resources/big_buck_bunny_480p_h264.mov
 
 new Elephants_Dream vod enabled
-setup Elephants_Dream input elephantsdream-480-h264-st-aac.mov
+setup Elephants_Dream input ../webroot/resources/elephantsdream-480-h264-st-aac.mov
